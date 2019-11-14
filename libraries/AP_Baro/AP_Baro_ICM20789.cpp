@@ -131,7 +131,7 @@ bool AP_Baro_ICM20789::imu_spi_init(void)
     dev_imu->write_register(MPUREG_USER_CTRL, BIT_USER_CTRL_I2C_IF_DIS);
 
     dev_imu->get_semaphore()->give();
-
+    
     return true;
 }
 
@@ -216,7 +216,7 @@ bool AP_Baro_ICM20789::init()
 
     // use 10ms to ensure we don't lose samples, with max lag of 10ms
     dev->register_periodic_callback(CONVERSION_INTERVAL/2, FUNCTOR_BIND_MEMBER(&AP_Baro_ICM20789::timer, void));
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20789", dev->bus_num());
     return true;
 
  failed:

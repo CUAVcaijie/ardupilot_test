@@ -75,8 +75,8 @@ bool sdcard_init()
             sdcStop(&SDCD1);
             continue;
         }
-        printf("Successfully mounted SDCard (slowdown=%u)\n", (unsigned)sd_slowdown);
-
+        //printf("Successfully mounted SDCard (slowdown=%u)\n", (unsigned)sd_slowdown);
+        hal.console->printf("CUAV:[0][SDCARD,0]\n");
         // Create APM Directory if needed
         mkdir("/APM", 0777);
         sdcard_running = true;
@@ -120,8 +120,8 @@ bool sdcard_init()
             mmcStop(&MMCD1);
             continue;
         }
-        printf("Successfully mounted SDCard (slowdown=%u)\n", (unsigned)sd_slowdown);
-
+        //printf("Successfully mounted SDCard (slowdown=%u)\n", (unsigned)sd_slowdown);
+        hal.console->printf("CUAV:[0][SDCARD,0]\n");
         // Create APM Directory if needed
         mkdir("/APM", 0777);
         return true;

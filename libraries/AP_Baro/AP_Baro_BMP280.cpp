@@ -116,7 +116,7 @@ bool AP_Baro_BMP280::_init()
 
     // request 50Hz update
     _dev->register_periodic_callback(20 * AP_USEC_PER_MSEC, FUNCTOR_BIND_MEMBER(&AP_Baro_BMP280::_timer, void));
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", "BMP280", _dev->bus_num());
     return true;
 }
 

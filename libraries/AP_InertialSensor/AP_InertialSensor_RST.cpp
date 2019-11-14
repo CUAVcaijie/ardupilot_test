@@ -270,7 +270,7 @@ bool AP_InertialSensor_RST::_init_gyro(void)
     hal.scheduler->delay(100);
 
     _dev_gyro->get_semaphore()->give();
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", "RST", _dev->bus_num());
     return true;
 
 fail_whoami:

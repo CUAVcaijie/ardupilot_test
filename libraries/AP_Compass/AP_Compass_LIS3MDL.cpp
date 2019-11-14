@@ -92,6 +92,8 @@ bool AP_Compass_LIS3MDL::init()
         // not a 3MDL
         goto fail;
     }
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, dev->bus_num());
+    goto fail;
 
     dev->setup_checked_registers(5);
 

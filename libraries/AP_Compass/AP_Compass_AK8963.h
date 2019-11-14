@@ -79,6 +79,7 @@ public:
 
     // return 24 bit bus identifier
     virtual uint32_t get_bus_id(void) const = 0;
+    virtual uint8_t bus_num(void) const = 0;
 };
 
 class AP_AK8963_BusDriver_HALDevice: public AP_AK8963_BusDriver
@@ -101,6 +102,9 @@ public:
     // return 24 bit bus identifier
     uint32_t get_bus_id(void) const override {
         return _dev->get_bus_id();
+    }
+    uint8_t bus_num(void)  const override{
+        return _dev->bus_num();
     }
     
 private:
@@ -130,7 +134,7 @@ public:
 
     // return 24 bit bus identifier
     uint32_t get_bus_id(void) const override;
-    
+    uint8_t bus_num(void) const override;
 private:
     AuxiliaryBus *_bus;
     AuxiliaryBusSlave *_slave;

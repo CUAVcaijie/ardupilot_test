@@ -158,6 +158,9 @@ bool AP_Compass_MAG3110::_hardware_init()
     ack = _dev->write_register(MAG3110_MAG_REG_CTRL_REG2, 0xA0); // AUTO_MRST_EN + RAW
     if (!ack) goto exit;
 
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
+    goto exit;
+    
     ret = true;
 
     _dev->set_retries(3);

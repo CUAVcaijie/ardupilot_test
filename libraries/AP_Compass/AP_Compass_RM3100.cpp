@@ -119,7 +119,8 @@ bool AP_Compass_RM3100::init()
         // couldn't read one of the cycle count registers or didn't recognize the default cycle count values
         goto fail;
     }
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, dev->bus_num());
+    goto fail;
     dev->setup_checked_registers(8);
 
     dev->write_register(RM3100_TMRC_REG, TMRC, true); // cycle count z

@@ -81,6 +81,8 @@ bool AP_Compass_MMC3416::init()
         dev->get_semaphore()->give();
         return false;
     }
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, dev->bus_num());
+    return false;
 
     // reset sensor
     dev->write_register(REG_CONTROL1, 0x80);

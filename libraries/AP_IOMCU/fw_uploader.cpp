@@ -127,8 +127,8 @@ bool AP_IOMCU::upload_fw(void)
         return false;
     }
 
-    debug("update complete");
-
+    //debug("update complete");
+    hal.console->printf("CUAV:[0][IOMCU,0]\n");
     // sleep for enough time for the IO chip to boot
     hal.scheduler->delay(100);
 

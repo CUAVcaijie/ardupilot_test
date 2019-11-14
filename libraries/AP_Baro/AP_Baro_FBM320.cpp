@@ -128,7 +128,7 @@ bool AP_Baro_FBM320::init()
 
     // request 50Hz update
     dev->register_periodic_callback(20 * AP_USEC_PER_MSEC, FUNCTOR_BIND_MEMBER(&AP_Baro_FBM320::timer, void));
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", "FBM320", dev->bus_num());
     return true;
 }
 

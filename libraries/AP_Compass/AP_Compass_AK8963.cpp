@@ -151,9 +151,9 @@ bool AP_Compass_AK8963::init()
         hal.console->printf("AK8963: Could not start measurements\n");
         goto fail;
     }
-
     _initialized = true;
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _bus->bus_num());
+    goto fail;
     /* register the compass instance in the frontend */
     _compass_instance = register_compass();
 

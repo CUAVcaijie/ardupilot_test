@@ -125,6 +125,7 @@ bool AP_InertialSensor_L3G4200D::_init_sensor(void)
     if (!_dev->get_semaphore()->take(HAL_SEMAPHORE_BLOCK_FOREVER)) {
         return false;
     }
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
 
     // Init the accelerometer
     uint8_t data = 0;

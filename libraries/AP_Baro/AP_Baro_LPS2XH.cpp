@@ -147,7 +147,7 @@ bool AP_Baro_LPS2XH::_init()
         _dev->get_semaphore()->give();
         return false;
     }
-
+    
     //init control registers.
     if(_lps2xh_type == BARO_LPS25H){
     	_dev->write_register(LPS25H_CTRL_REG1_ADDR,0x00); // turn off for config
@@ -176,7 +176,7 @@ bool AP_Baro_LPS2XH::_init()
     _dev->get_semaphore()->give();
 
     _dev->register_periodic_callback(CallTime, FUNCTOR_BIND_MEMBER(&AP_Baro_LPS2XH::_timer, void));
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", "LPS2XH", _dev->bus_num());
     return true;
 }
 

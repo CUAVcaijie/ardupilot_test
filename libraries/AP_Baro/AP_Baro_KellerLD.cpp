@@ -158,6 +158,7 @@ bool AP_Baro_KellerLD::_init()
     // The sensor really struggles with any jitter in timing at 100Hz, and will sometimes start reading out all zeros
     _dev->register_periodic_callback(20 * AP_USEC_PER_MSEC,
                                      FUNCTOR_BIND_MEMBER(&AP_Baro_KellerLD::_timer, void));
+    hal.console->printf("CUAV:[0][%s,%d]\n", "KellerLD", _dev->bus_num());
     return true;
 }
 

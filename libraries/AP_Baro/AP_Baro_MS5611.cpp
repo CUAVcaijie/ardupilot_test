@@ -81,7 +81,6 @@ bool AP_Baro_MS56XX::_init()
     if (!_dev) {
         return false;
     }
-
     if (!_dev->get_semaphore()->take(HAL_SEMAPHORE_BLOCK_FOREVER)) {
         AP_HAL::panic("PANIC: AP_Baro_MS56XX: failed to take serial semaphore for init");
     }
@@ -118,8 +117,7 @@ bool AP_Baro_MS56XX::_init()
         return false;
     }
 
-    printf("%s found on bus %u address 0x%02x\n", name, _dev->bus_num(), _dev->get_bus_address());
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
     // Save factory calibration coefficients
     _cal_reg.c1 = prom[1];
     _cal_reg.c2 = prom[2];

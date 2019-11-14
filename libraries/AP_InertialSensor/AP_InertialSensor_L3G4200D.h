@@ -21,6 +21,7 @@ public:
     static AP_InertialSensor_Backend *probe(AP_InertialSensor &imu,
                                             AP_HAL::OwnPtr<AP_HAL::I2CDevice> dev);
 
+    char *name = ;
     /* update accel and gyro state */
     bool update() override;
 

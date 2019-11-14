@@ -262,6 +262,7 @@ bool AP_Compass_LSM303D::init(enum Rotation rotation)
     if (!success) {
         return false;
     }
+   
 
     _initialised = true;
 
@@ -276,7 +277,7 @@ bool AP_Compass_LSM303D::init(enum Rotation rotation)
     // read at 91Hz. We don't run at 100Hz as fetching data too fast can cause some very
     // odd periodic changes in the output data
     _dev->register_periodic_callback(11000, FUNCTOR_BIND_MEMBER(&AP_Compass_LSM303D::_update, void));
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
     return true;
 }
 

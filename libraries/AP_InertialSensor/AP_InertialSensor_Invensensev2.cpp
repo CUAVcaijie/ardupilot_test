@@ -701,6 +701,11 @@ bool AP_InertialSensor_Invensensev2::_hardware_init(void)
         _dev->get_semaphore()->give();
         return false;
     }
+    
+
+    if(_inv2_type == Invensensev2_ICM20648 ) hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20648", _dev->bus_num());
+    else if(_inv2_type == INV2_WHOAMI_ICM20948 ) hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20948", _dev->bus_num());
+    else if(_inv2_type == INV2_WHOAMI_ICM20649 ) hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20649", _dev->bus_num());
 
     if (_inv2_type == Invensensev2_ICM20649) {
         _clip_limit = 29.5f * GRAVITY_MSS;

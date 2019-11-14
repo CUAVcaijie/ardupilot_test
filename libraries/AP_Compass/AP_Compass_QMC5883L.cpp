@@ -110,6 +110,9 @@ bool AP_Compass_QMC5883L::init()
     		  	  goto fail;
      }
 
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
+    return false;
+
     // lower retries for run
     _dev->set_retries(3);
 

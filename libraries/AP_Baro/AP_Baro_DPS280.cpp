@@ -154,7 +154,7 @@ bool AP_Baro_DPS280::init()
 
     // request 64Hz update. New data will be available at 32Hz
     dev->register_periodic_callback((1000 / 64) * AP_USEC_PER_MSEC, FUNCTOR_BIND_MEMBER(&AP_Baro_DPS280::timer, void));
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", "DPS280", dev->bus_num());
     return true;
 }
 

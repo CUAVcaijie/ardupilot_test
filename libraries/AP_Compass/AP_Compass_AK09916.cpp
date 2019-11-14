@@ -219,7 +219,8 @@ bool AP_Compass_AK09916::init()
         gcs().send_text(MAV_SEVERITY_INFO,"AK09916: Could not start measurements\n");
         goto fail;
     }
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _bus->bus_num());
+    goto fail;
     _initialized = true;
 
     /* register the compass instance in the frontend */

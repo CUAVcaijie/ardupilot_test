@@ -842,6 +842,19 @@ bool AP_InertialSensor_Invensense::_hardware_init(void)
         _dev->get_semaphore()->give();
         return false;
     }
+    
+    switch(_mpu_type){
+        case Invensense_MPU6000:  hal.console->printf("CUAV:[0][%s,%d]\n", "MPU6000", _dev->bus_num());  break;
+        case Invensense_MPU6500:  hal.console->printf("CUAV:[0][%s,%d]\n", "MPU6500", _dev->bus_num());  break;
+        case Invensense_MPU9250:  hal.console->printf("CUAV:[0][%s,%d]\n", "MPU9250", _dev->bus_num());  break;
+        case Invensense_ICM20608: hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20608", _dev->bus_num()); break;
+        case Invensense_ICM20602: hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20602", _dev->bus_num()); break;
+        case Invensense_ICM20601: hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20601", _dev->bus_num()); break;
+        case Invensense_ICM20789: hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20789", _dev->bus_num()); break;
+        case Invensense_ICM20689: hal.console->printf("CUAV:[0][%s,%d]\n", "ICM20689", _dev->bus_num()); break;
+    }
+
+    
 
     if (_mpu_type == Invensense_ICM20608 ||
         _mpu_type == Invensense_ICM20602 ||

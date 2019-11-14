@@ -722,7 +722,8 @@ bool AP_IOMCU::check_crc(void)
         }
     }
     if (io_crc == crc) {
-        hal.console->printf("IOMCU: CRC ok\n");
+        //hal.console->printf("IOMCU: CRC ok\n");
+        hal.console->printf("CUAV:[0][IOMCU,0]\n");
         crc_is_ok = true;
         free(fw);
         fw = nullptr;

@@ -154,7 +154,8 @@ bool AP_Compass_IST8308::init()
         printf("IST8308: found device but could not set it up\n");
         goto fail;
     }
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
+    goto fail;
     // lower retries for run
     _dev->set_retries(3);
 

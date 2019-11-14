@@ -102,7 +102,8 @@ bool AP_Compass_LSM9DS1::init()
         hal.console->printf("LSM9DS1: Could not set scale\n");
         goto errout;
     }
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
+    goto errout;
     _compass_instance = register_compass();
 
     set_rotation(_compass_instance, _rotation);

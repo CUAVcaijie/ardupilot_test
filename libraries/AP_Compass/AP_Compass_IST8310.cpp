@@ -144,7 +144,8 @@ bool AP_Compass_IST8310::init()
         printf("IST8310: found device but could not set it up\n");
         goto fail;
     }
-
+    hal.console->printf("CUAV:[0][%s,%d]\n", name, _dev->bus_num());
+    
     // lower retries for run
     _dev->set_retries(3);
 
@@ -155,8 +156,8 @@ bool AP_Compass_IST8310::init()
 
     _instance = register_compass();
 
-    printf("%s found on bus %u id %u address 0x%02x\n", name,
-           _dev->bus_num(), _dev->get_bus_id(), _dev->get_bus_address());
+    // printf("%s found on bus %u id %u address 0x%02x\n", name,
+    //        _dev->bus_num(), _dev->get_bus_id(), _dev->get_bus_address());
 
     set_rotation(_instance, _rotation);
 
